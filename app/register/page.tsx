@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ChefHat, Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
+import { GoogleIcon } from "@/components/ui/GoogleIcon";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -117,6 +118,7 @@ export default function RegisterPage() {
           onClick={() => authClient.signIn.social({ provider: "google", callbackURL: "/" })}
           className="mt-3 flex w-full items-center justify-center gap-2 rounded-full border border-ink/15 py-2.5 text-sm font-medium text-ink hover:bg-ink/5"
         >
+          <GoogleIcon size={16} />
           Continue with Google
         </button>
 
