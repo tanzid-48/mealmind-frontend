@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: 241 236 220;       /* #F1ECDC parchment */
+  --ink: 42 38 34;            /* #2A2622 */
+  --herb: 45 74 62;           /* #2D4A3E */
+  --saffron: 212 160 23;      /* #D4A017 */
+  --paprika: 179 58 46;       /* #B33A2E */
+  --cream-card: 251 248 240;  /* #FBF8F0 */
+}
+
+.dark {
+  --paper: 27 23 18;          /* #1B1712 */
+  --ink: 240 235 225;
+  --herb: 92 140 120;
+  --saffron: 224 176 60;
+  --paprika: 210 100 80;
+  --cream-card: 36 31 25;     /* #241F19 */
+}
+
+body {
+  background-color: rgb(var(--paper));
+  color: rgb(var(--ink));
+}
+
+/* Recipe index-card signature: torn top edge */
+.index-card {
+  position: relative;
+  clip-path: polygon(
+    0% 4px, 3% 0%, 6% 4px, 9% 0%, 12% 4px, 15% 0%, 18% 4px, 21% 0%,
+    24% 4px, 27% 0%, 30% 4px, 33% 0%, 36% 4px, 39% 0%, 42% 4px, 45% 0%,
+    48% 4px, 51% 0%, 54% 4px, 57% 0%, 60% 4px, 63% 0%, 66% 4px, 69% 0%,
+    72% 4px, 75% 0%, 78% 4px, 81% 0%, 84% 4px, 87% 0%, 90% 4px, 93% 0%,
+    96% 4px, 99% 0%, 100% 4px,
+    100% 100%, 0% 100%
+  );
+}
+
+.pantry-tag {
+  position: relative;
+  border-radius: 999px 999px 4px 4px;
+}
+.pantry-tag::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 6px;
+  background: inherit;
+  border-radius: 4px 4px 0 0;
+  opacity: 0.6;
+}
