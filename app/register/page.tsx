@@ -115,7 +115,14 @@ export default function RegisterPage() {
         </form>
 
         <button
-          onClick={() => authClient.signIn.social({ provider: "google", callbackURL: "/" })}
+          onClick={async () => {
+            try {
+              const { error } = await authClient.signIn.social({ provider: "google", callbackURL: "/" });
+              if (error) toast.error(error.message || "Google sign-in failed. Please try again.");
+            } catch (err) {
+              toast.error("Could not reach the server. Check your connection and try again.");
+            }
+          }}
           className="mt-3 flex w-full items-center justify-center gap-2 rounded-full border border-ink/15 py-2.5 text-sm font-medium text-ink hover:bg-ink/5"
         >
           <GoogleIcon size={16} />
