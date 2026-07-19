@@ -67,7 +67,7 @@ export function Navbar() {
           <ThemeToggle />
           {isLoggedIn ? (
             <button
-              onClick={() => signOut()}
+              onClick={() => signOut().then(() => (window.location.href = "/"))}
               className="rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink hover:bg-ink/5"
             >
               Log out
@@ -122,7 +122,7 @@ export function Navbar() {
             {isLoggedIn ? (
               <button
                 onClick={() => {
-                  signOut();
+                  signOut().then(() => (window.location.href = "/"));
                   setOpen(false);
                 }}
                 className="w-full rounded-full border border-ink/15 py-2.5 text-sm font-medium text-ink"
