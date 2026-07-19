@@ -114,7 +114,10 @@ export default function LoginPage() {
         <button
           onClick={async () => {
             try {
-              const { error } = await authClient.signIn.social({ provider: "google", callbackURL: "/" });
+              const { error } = await authClient.signIn.social({
+                provider: "google",
+                callbackURL: `${window.location.origin}/`,
+              });
               if (error) toast.error(error.message || "Google sign-in failed. Please try again.");
             } catch (err) {
               toast.error("Could not reach the server. Check your connection and try again.");
