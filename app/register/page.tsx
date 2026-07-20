@@ -40,8 +40,8 @@ export default function RegisterPage() {
       toast.error(authError.message || "Could not create account.");
       return;
     }
-    toast.success("Account created!");
-    window.location.href = "/";
+    toast.success("Account created! Please log in.");
+    window.location.href = "/login";
   };
 
   return (
